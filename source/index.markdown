@@ -19,3 +19,5 @@ To generate standalone blocks of math, add double dollar symbols on new lines be
 $$
 P(E)   = {n \choose k} p^k (1-p)^{ n-k}
 $$
+
+
