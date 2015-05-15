@@ -1,7 +1,7 @@
 {
 	"comment":"every post contain date, title",
 	"posts":[
-		{"title":"how to new a post", "date":"2015-02-04"},
-		{"title":"LDA implementation roadmap distribution", "date":"2015-05-15"}
+		{"title":"how-to-new-a-post","year":"2015","month":"02","day":"04"},
+		{"title":"LDA-implementation-roadmap-distribution","year":"2015","month":"05","day":"15"}
 	]
 }
