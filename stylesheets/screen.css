@@ -1521,7 +1521,7 @@ html .gist .gist-file .gist-meta a[href*=raw] {
 }
 
 pre {
-    background: #002b36 url('/images/noise.png?1423033159') top left;
+    background: #F5FCF3 url('/images/noise.png?1423033159') top left;
     -moz-border-radius: 0.4em;
     -webkit-border-radius: 0.4em;
     border-radius: 0.4em;
