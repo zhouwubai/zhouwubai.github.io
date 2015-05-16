@@ -19,6 +19,7 @@
     !window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))
     </script>
     <script src="/javascripts/octopress.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <script type="text/javascript" src="/javascripts/customer.js"></script>
     <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
     <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
@@ -73,12 +74,10 @@
                     <p>We can render inline math like $a^2 + b^2 = c^2$ by surrounding the MathJax markup with single dollar symbols like so: <code>$a^2 + b^2 = c^2$</code>.</p>
                     <h3 id="block">Block</h3>
                     <p>To generate standalone blocks of math, add double dollar symbols on new lines before and after the markup.</p>
-                    <pre>
+                    <pre class="prettyprint lang-python">
                         <code class="language-python">
-                            $$
-                           languages = ["HTML", "JavaScript", "Python", "Ruby"]
-                            print filter(lambda x: x == "Python", languages)
-                            $$
+languages = ["HTML", "JavaScript", "Python", "Ruby"]
+print filter(lambda x: x == "Python", languages)
                         </code>
                     </pre>
                     <script type="math/tex; mode=display">
