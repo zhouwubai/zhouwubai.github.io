@@ -69,20 +69,31 @@
             <div>
                 <article class="hentry" role="article">
                     <header>
-                        <h1 class="entry-title">How to New a Post</h1>
+                        <h1 class="entry-title">DA implementation roadmap 1: distribution</h1>
                         <p class="meta">
-                            <time datetime="2015-02-04T04:25:22-05:00" pubdate data-updated="true"></time>
+                            <time datetime="2015-05-15T04:25:22-05:00" pubdate data-updated="true"></time>
                         </p>
                     </header>
                     <div class="entry-content">
-                        <h3 id="the-first-post">The first post</h3>
-                        <p>rake new_post[“YYYY-MM-DD-post-title.markdown”]</p>
-                        <p>rake preview localhost:4000</p>
-                        <p>Take a look also to rake generate (generates the content in the /public folder manually) and rake watch (watch for changes into /source and /sass folders and generates the files automatically)</p>
-                        <h3 id="deploy-to-github-pages">Deploy to github pages</h3>
-                        <p>rake setup_github_pages[git@github.com:cibernox/cibernox.github.io.git]</p>
-                        <p>rake deploy</p>
-                        <p>git push origin source</p>
+                        <p>Latent Dirichlet Allocation (LDA) is a generative probabilistic model of a corpus. The basic idea is that documents are represented as random mixtures over latent topics, where each topic is characterized by a distribution over words. LDA assumes the following generative process for each document w in a corpus D:
+                          <ol>
+                            <li>Choose $N ~ Poisson(\xi)$</li>
+                            <li>Choose $\theta ~ Dir(\alpha)$</li>
+                            <li>For each of the N words $w_n$
+                              <ol>
+                                <li>Choose a topic $z_n ~ Multinomial(\theta)$ (Generalization of Beta distribution).</li>
+                                <li>Choose a word $w_n$ from $p(w_n|z_n,\beta)$, a multinomial probability conditioned on the topic $z_n$, more precisely, it is categorical distribution.</li>
+                              </ol>
+                            </li>
+                          </ol>
+                        </p>
+
+                        <p>LDA involves many fundamental concepts and algorithms in Machine Learning area such as basic distributions, EM algorithm, variational inference which trigger my interests to implement it. This article I will write something about some related distributions.</p>
+                        
+                        <h4 id="the-first-post">Distribution</h4>
+                        
+                        
+
                     </div>
                     <footer>
                         <p class="meta">
