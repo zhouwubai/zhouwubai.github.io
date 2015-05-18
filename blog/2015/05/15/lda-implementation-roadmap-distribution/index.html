@@ -69,7 +69,7 @@
             <div>
                 <article class="hentry" role="article">
                     <header>
-                        <h1 class="entry-title">DA implementation roadmap 1: distribution</h1>
+                        <h1 class="entry-title">LDA implementation roadmap 1: distribution</h1>
                         <p class="meta">
                             <time datetime="2015-05-15T04:25:22-05:00" pubdate data-updated="true"></time>
                         </p>
@@ -92,20 +92,28 @@
                         
                         <h4 id="the-first-post">Distributions and functions</h4>
                         <h5 id="gamma-function">Gamma Function</h5>
-                        <p>Gamma function is the basic for lots of functions and probabilities, such as Beta function, Beta distribution, Dirichlet distribution and so on. In mathamatics, the gamma function is an extention of of the factorial function. With positive real integer, that is $\Gamma(n) = (n-1)!$; For complex numbers with a positive real part, it is defined as $\Gamma(n) = \int_0^{\infty}{x^{t-1}e^{-x}dx}$. Following is the gamma function along part of the real axis. Notice that the function domain is usually restricted in $[1, \infty]$ in most of real application.</p>
+                        <p>Gamma function is the basic for lots of functions and probabilities, such as Beta function, Beta distribution, Dirichlet distribution and so on. In mathamatics, the gamma function is an extention of of the factorial function. With positive real integer, that is $\Gamma(n) = (n-1)!$; For complex numbers with a positive real part, it is defined as：
+                            <script type="math/tex; mode=display">
+                            \Gamma(t) = \int_0^{\infty}{x^{t-1}e^{-x}dx}
+                            </script>
+                             Following is the gamma function along part of the real axis. Notice that the function domain is usually restricted in $[1, \infty]$ in most of real application.</p>
 
                         <p>
                         <a href="http://en.wikipedia.org/wiki/Gamma_function#/media/File:Gamma_plot.svg"><img src="http://upload.wikimedia.org/wikipedia/commons/5/52/Gamma_plot.svg" width="560" /></a>
                         </p>
 
                         <h5 id="gamma-distribution">Gamma Distribution</h5>
-                        <p>The Gamma Distribution $X \sim \Gamma(\alpha, \beta) \equiv Gammma(\alpha,\beta)$ is a two parameter family of continuous probability distributions. The are three different parametrization in common use:<br/>
+                        <p>The Gamma Distribution $X \sim \Gamma(\alpha, \beta) \equiv Gammma(\alpha,\beta)$ is a two parameter family of continuous probability distributions. The are three different parametrization in common use:
                             <ol>
                                 <li>With a shape parameter $k$ and a scale parameter $\theta$.</li>
                                 <li>With a shape parameter $\alpha = k$ and an inverse scale parameter $\beta = 1/\theta$, called a rate parameter.</li>
                                 <li>With a shape parameter $k$ and a mean parameter $mu = k / \beta$</li>
                             </ol>
-                        <br/> The corresponding density function in the shape-rate parametrization is $g(x;\alpha, \beta) = \frac{\beta^{\alpha} x^{\alpha-1} e^{-\lambda x}}{\Gamma(\alpha)}$ and its PDF plot is shown as following:
+                        The corresponding density function in the shape-rate parametrization is:
+                        <script type="math/tex; mode=display">
+                        g(x;\alpha, \beta) = \frac{\beta^{\alpha} x^{\alpha-1} e^{-\lambda x}}{\Gamma(\alpha)}
+                        </script>
+                        Its PDF plot is shown as following:
                         </p>
 
                         <p>
@@ -113,6 +121,26 @@
                         </p>
 
                         <p>The parameterization with $\alpha$ and $\beta$ is commonly used in Bayesian statistic, where gamma is used as a conjugate prior distribution for exponential distribution and Possion distribution. Moreover, common exponential distribution $X \sim Exp(X) \sim Gamma(1,\lambda)$ and chi-square distribution are special cases of gamma distribution.The chi-squared distribution (also chi-square or $\chi^{2}$-distribution) with k degrees of freedom is the distribution of a sum of the squares of k independent standard normal random variables.</p>
+
+                        <p><strong>Logarithmic expectation:</strong>$E[ln(X)] = \phi(\alpha) - ln(\beta)$ in which $\phi$ is the digamma function defined as the logarithmic derivative of the gamma function, i.e., $\phi(x) = \frac{d}{dx}ln(\Gamma(x))$. This property will be used in varational inference process.</p>
+
+                        <h5 id="beta-function">Beta function</h5>
+                        Beta function is defined as: 
+                        <script type="math/tex; mode=display">
+                            \Beta(x,y)  =  \int_0^1 t^{x-1}(1-t)^{y-1} dt
+                        </script>
+
+                        <p> The relationship between Gamma function and Beta function is: $\Gamma(x)\Gamma(y) = \Gamma(x+y) B(x,y)$. It can be derived as following :
+                        <script type="math/tex; mode=display">
+                            \begin{eqnarray*}
+                                \Gamma(x)\Gamma(y) & = & \int_0^{infty}\int_0^{infty}{e^{-u-v}\mu^{x-1}\nu^{y-1}} d\mu d\nu \\
+                                                   & = & \int_{z=0}^{infty}\int_{t=0}^1{e^{-t}(zt)^{x-1}(z(1-t))^{y-1}} J|z,t| dzdt \\
+                                                   & = & \int_{z=0}^{infty}{e^{-t}z^{x+y-1}} dz \int_0^1{t^{x-1}(1-t)^{y-1}} dt \\
+                                                   & = & \Gamma(x+y)\Beta(x,y)
+                            \end{eqnarray*}
+                        </script>
+                        where we putting $u=zt, v = z(1-t)$ and $J|z,t| = z$ is the absolute value of the Jacobian determinant of $z$ and $t$.
+                        </p>
 
                     </div>
                     <footer>
