@@ -77,22 +77,42 @@
                     <div class="entry-content">
                         <p>Latent Dirichlet Allocation (LDA) is a generative probabilistic model of a corpus. The basic idea is that documents are represented as random mixtures over latent topics, where each topic is characterized by a distribution over words. LDA assumes the following generative process for each document w in a corpus D:
                           <ol>
-                            <li>Choose $N ~ Poisson(\xi)$</li>
-                            <li>Choose $\theta ~ Dir(\alpha)$</li>
+                            <li>Choose $N \sim Poisson(\xi)$</li>
+                            <li>Choose $\theta \sim Dir(\alpha)$</li>
                             <li>For each of the N words $w_n$
                               <ol>
-                                <li>Choose a topic $z_n ~ Multinomial(\theta)$ (Generalization of Beta distribution).</li>
+                                <li>Choose a topic $z_n \sim Multinomial(\theta)$ (Generalization of Beta distribution).</li>
                                 <li>Choose a word $w_n$ from $p(w_n|z_n,\beta)$, a multinomial probability conditioned on the topic $z_n$, more precisely, it is categorical distribution.</li>
                               </ol>
                             </li>
                           </ol>
                         </p>
 
-                        <p>LDA involves many fundamental concepts and algorithms in Machine Learning area such as basic distributions, EM algorithm, variational inference which trigger my interests to implement it. This article I will write something about some related distributions.</p>
+                        <p>LDA involves many fundamental concepts and algorithms in Machine Learning area such as some basic and popular probability distributions, EM algorithm, variational inference which greatly trigger my interests to implement it. This article I will first write something about some related distributions and their origin functions.</p>
                         
-                        <h4 id="the-first-post">Distribution</h4>
-                        
-                        
+                        <h4 id="the-first-post">Distributions and functions</h4>
+                        <h5 id="gamma-function">Gamma Function</h5>
+                        <p>Gamma function is the basic for lots of functions and probabilities, such as Beta function, Beta distribution, Dirichlet distribution and so on. In mathamatics, the gamma function is an extention of of the factorial function. With positive real integer, that is $\Gamma(n) = (n-1)!$; For complex numbers with a positive real part, it is defined as $\Gamma(n) = \int_0^{\infty}{x^{t-1}e^{-x}dx}$. Following is the gamma function along part of the real axis. Notice that the function domain is usually restricted in $[1, \infty]$ in most of real application.</p>
+
+                        <p>
+                        <a href="http://en.wikipedia.org/wiki/Gamma_function#/media/File:Gamma_plot.svg"><img src="http://upload.wikimedia.org/wikipedia/commons/5/52/Gamma_plot.svg" width="560" /></a>
+                        </p>
+
+                        <h5 id="gamma-distribution">Gamma Distribution</h5>
+                        <p>The Gamma Distribution $X \sim \Gamma(\alpha, \beta) \equiv Gammma(\alpha,\beta)$ is a two parameter family of continuous probability distributions. The are three different parametrization in common use:<br/>
+                            <ol>
+                                <li>With a shape parameter $k$ and a scale parameter $\theta$.</li>
+                                <li>With a shape parameter $\alpha = k$ and an inverse scale parameter $\beta = 1/\theta$, called a rate parameter.</li>
+                                <li>With a shape parameter $k$ and a mean parameter $mu = k / \beta$</li>
+                            </ol>
+                        <br/> The corresponding density function in the shape-rate parametrization is $g(x;\alpha, \beta) = \frac{\beta^{alpha} x^{\alpha-1} e^{-\lamda x}}{\Gamma(\alpha)}$ and its PDF plot is shown as following:
+                        </p>
+
+                        <p>
+                        <a href="http://en.wikipedia.org/wiki/Gamma_distribution#/media/File:Gamma_distribution_pdf.svg"><img src="http://upload.wikimedia.org/wikipedia/commons/e/e6/Gamma_distribution_pdf.svg" width="560" />
+                        </p>
+
+                        <p>The parameterization with $\alpha$ and $\beta$ is commonly used in Bayesian statistic, where gamma is used as a conjugate prior distribution for exponential distribution and Possion distribution. Moreover, common exponential distribution $X \sim Exp(X) \sim Gamma(1,\lamda)$ and chi-square distribution are special cases of gamma distribution.The chi-squared distribution (also chi-square or $\chi^{2}$-distribution) with k degrees of freedom is the distribution of a sum of the squares of k independent standard normal random variables.</p>
 
                     </div>
                     <footer>
