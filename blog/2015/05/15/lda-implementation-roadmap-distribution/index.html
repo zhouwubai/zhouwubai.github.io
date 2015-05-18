@@ -99,7 +99,7 @@
                              Following is the gamma function along part of the real axis. Notice that the function domain is usually restricted in $[1, \infty]$ in most of real application.</p>
 
                         <p>
-                        <a href="http://en.wikipedia.org/wiki/Gamma_function#/media/File:Gamma_plot.svg"><img src="http://upload.wikimedia.org/wikipedia/commons/5/52/Gamma_plot.svg" width="560" /></a>
+                        <a href="http://en.wikipedia.org/wiki/Gamma_function#/media/File:Gamma_plot.svg"><img src="http://upload.wikimedia.org/wikipedia/commons/5/52/Gamma_plot.svg" width="450" /></a>
                         </p>
 
                         <h5 id="gamma-distribution">Gamma Distribution</h5>
@@ -117,12 +117,16 @@
                         </p>
 
                         <p>
-                        <a href="http://en.wikipedia.org/wiki/Gamma_distribution#/media/File:Gamma_distribution_pdf.svg"><img src="http://upload.wikimedia.org/wikipedia/commons/e/e6/Gamma_distribution_pdf.svg" width="560" /></a>
+                        <a href="http://en.wikipedia.org/wiki/Gamma_distribution#/media/File:Gamma_distribution_pdf.svg"><img src="http://upload.wikimedia.org/wikipedia/commons/e/e6/Gamma_distribution_pdf.svg" width="450" /></a>
                         </p>
 
                         <p>The parameterization with $\alpha$ and $\beta$ is commonly used in Bayesian statistic, where gamma is used as a conjugate prior distribution for exponential distribution and Possion distribution. Moreover, common exponential distribution $X \sim Exp(X) \sim Gamma(1,\lambda)$ and chi-square distribution are special cases of gamma distribution.The chi-squared distribution (also chi-square or $\chi^{2}$-distribution) with k degrees of freedom is the distribution of a sum of the squares of k independent standard normal random variables.</p>
 
-                        <p><strong>Logarithmic expectation: </strong> $E[ln(X)] = \phi(\alpha) - ln(\beta)$ in which $\phi$ is the digamma function defined as the logarithmic derivative of the gamma function, i.e., $\phi(x) = \frac{d}{dx}ln \Gamma(x)$. This property will be used in varational inference process.</p>
+                        <h5>Logarithmic expectation</h5>
+                        <script type="math/tex; model=display">
+                            E[ln(X)] = \phi(\alpha) - ln(\beta)
+                        </script>
+                        <p>in which $\phi$ is the digamma function defined as the logarithmic derivative of the gamma function, i.e., $\phi(x) = \frac{d}{dx}ln \Gamma(x)$. This property will be used in varational inference process.</p>
 
                         <h5 id="beta-function">Beta function</h5>
                         Beta function is defined as: 
@@ -142,9 +146,22 @@
                         where we putting $u=zt, v = z(1-t)$ and $J|z,t| = z$ is the absolute value of the Jacobian determinant of $z$ and $t$. Beta(x,y) becomes large if one of the arguments close to 1 and small if x and y are both away from 0. Following is its function plot.
                         </p>
 
-                        <p><a href="http://en.wikipedia.org/wiki/Beta_function#/media/File:Beta_function_on_real_plane.png"><img src="http://upload.wikimedia.org/wikipedia/commons/f/f4/Beta_function_on_real_plane.png" width="560"></img></a></p>
+                        <p><a href="http://en.wikipedia.org/wiki/Beta_function#/media/File:Beta_function_on_real_plane.png"><img src="http://upload.wikimedia.org/wikipedia/commons/f/f4/Beta_function_on_real_plane.png" width="450"></img></a></p>
 
                         <h5 id="beta-distribution">Beta distribution</h5>
+                        <p>In the bayesian inference, the beta distribution is the conjugate prior probability distribution for Bernouli (one trial for two class, categorical distribution is a generalized Bernouli distribution for multiple class), binomial (sum of multiple indepedent Bernouli trial and multinomial distribution is a generalized binomial distribution) and geometric distribution. The beta distribution is a suitable model for the random behavior percentage and proportions. The PDF of beta distribution is as follows:
+                        <script type="math/text; mode=display">
+                            f(x;\alpha,\beta) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} x^{\alpha-1}(1-x)^{\beta - 1} =\frac{1}{B(\alpha,\beta) x^{\alpha-1}(1-x)^{\beta - 1}
+                        </script>
+                        The beta function is a normalization constant. Following shows it PDF plot.
+                        </p>
+
+                        <p><a href="http://en.wikipedia.org/wiki/Beta_distribution#/media/File:Beta_distribution_pdf.svg"><img src="http://upload.wikimedia.org/wikipedia/commons/f/f3/Beta_distribution_pdf.svg" width="450"></a></p>
+
+                        <h5 id="dirichlet-distribution">Dirichlet Distribution</h5>
+                        
+
+                        
                     </div>
                     <footer>
                         <p class="meta">
