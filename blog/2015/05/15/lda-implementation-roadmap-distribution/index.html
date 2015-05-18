@@ -122,26 +122,29 @@
 
                         <p>The parameterization with $\alpha$ and $\beta$ is commonly used in Bayesian statistic, where gamma is used as a conjugate prior distribution for exponential distribution and Possion distribution. Moreover, common exponential distribution $X \sim Exp(X) \sim Gamma(1,\lambda)$ and chi-square distribution are special cases of gamma distribution.The chi-squared distribution (also chi-square or $\chi^{2}$-distribution) with k degrees of freedom is the distribution of a sum of the squares of k independent standard normal random variables.</p>
 
-                        <p><strong>Logarithmic expectation:</strong>$E[ln(X)] = \phi(\alpha) - ln(\beta)$ in which $\phi$ is the digamma function defined as the logarithmic derivative of the gamma function, i.e., $\phi(x) = \frac{d}{dx}ln(\Gamma(x))$. This property will be used in varational inference process.</p>
+                        <p><strong>Logarithmic expectation: </strong> $E[ln(X)] = \phi(\alpha) - ln(\beta)$ in which $\phi$ is the digamma function defined as the logarithmic derivative of the gamma function, i.e., $\phi(x) = \frac{d}{dx}ln \Gamma(x)$. This property will be used in varational inference process.</p>
 
                         <h5 id="beta-function">Beta function</h5>
                         Beta function is defined as: 
                         <script type="math/tex; mode=display">
-                            \Beta(x,y)  =  \int_0^1 t^{x-1}(1-t)^{y-1} dt
+                            B(x,y)  =  \int_0^1 t^{x-1}(1-t)^{y-1} dt
                         </script>
 
-                        <p> The relationship between Gamma function and Beta function is: $\Gamma(x)\Gamma(y) = \Gamma(x+y) B(x,y)$. It can be derived as following :
+                        <p> The relationship between Gamma function and Beta function is: $\Gamma(x)\Gamma(y) = \Gamma(x+y)B(x,y)$. It can be derived as following :
                         <script type="math/tex; mode=display">
                             \begin{eqnarray*}
-                                \Gamma(x)\Gamma(y) & = & \int_0^{infty}\int_0^{infty}{e^{-u-v}\mu^{x-1}\nu^{y-1}} d\mu d\nu \\
-                                                   & = & \int_{z=0}^{infty}\int_{t=0}^1{e^{-t}(zt)^{x-1}(z(1-t))^{y-1}} J|z,t| dzdt \\
-                                                   & = & \int_{z=0}^{infty}{e^{-t}z^{x+y-1}} dz \int_0^1{t^{x-1}(1-t)^{y-1}} dt \\
-                                                   & = & \Gamma(x+y)\Beta(x,y)
+                                \Gamma(x)\Gamma(y) & = & \int_0^{\infty}\int_0^{\infty}{e^{-u-v}\mu^{x-1}\nu^{y-1}} d\mu d\nu \\
+                                                   & = & \int_{z=0}^{\infty}\int_{t=0}^1{e^{-t}(zt)^{x-1}(z(1-t))^{y-1}} J|z,t| dzdt \\
+                                                   & = & \int_{z=0}^{\infty}{e^{-t}z^{x+y-1}} dz \int_0^1{t^{x-1}(1-t)^{y-1}} dt \\
+                                                   & = & \Gamma(x+y)B(x,y)
                             \end{eqnarray*}
                         </script>
-                        where we putting $u=zt, v = z(1-t)$ and $J|z,t| = z$ is the absolute value of the Jacobian determinant of $z$ and $t$.
+                        where we putting $u=zt, v = z(1-t)$ and $J|z,t| = z$ is the absolute value of the Jacobian determinant of $z$ and $t$. Beta(x,y) becomes large if one of the arguments close to 1 and small if x and y are both away from 0. Following is its function plot.
                         </p>
 
+                        <p><a href="http://en.wikipedia.org/wiki/Beta_function#/media/File:Beta_function_on_real_plane.png"><img src="http://upload.wikimedia.org/wikipedia/commons/f/f4/Beta_function_on_real_plane.png" width="560"></img></a></p>
+
+                        <h5 id="beta-distribution">Beta distribution</h5>
                     </div>
                     <footer>
                         <p class="meta">
