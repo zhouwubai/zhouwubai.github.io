@@ -2,6 +2,14 @@
     "comment": "every post contain date, title",
     "posts": [
         {
+            "day": "18",
+            "href": "lda-implementation-roadmap-inference",
+            "month": "05",
+            "monthName": "May",
+            "title": "LDA implementation roadmap 2: inference",
+            "year": "2015"
+        },
+        {
             "day": "15",
             "href": "lda-implementation-roadmap-distribution",
             "month": "05",
