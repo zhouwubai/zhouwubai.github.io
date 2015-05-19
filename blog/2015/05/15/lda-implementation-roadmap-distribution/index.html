@@ -78,10 +78,10 @@
                         <p>Latent Dirichlet Allocation (LDA) is a generative probabilistic model of a corpus. The basic idea is that documents are represented as random mixtures over latent topics, where each topic is characterized by a distribution over words. LDA assumes the following generative process for each document w in a corpus D:
                           <ol>
                             <li>Choose $N \sim Poisson(\xi)$</li>
-                            <li>Choose $\theta \sim Dir(\alpha)$</li>
+                            <li>Choose $\theta \sim Dir(\alpha)$, generalized multivariate beta distribution</li>
                             <li>For each of the N words $w_n$
                               <ol>
-                                <li>Choose a topic $z_n \sim Multinomial(\theta)$ (Generalization of Beta distribution).</li>
+                                <li>Choose a topic $z_n \sim Multinomial(\theta)$.</li>
                                 <li>Choose a word $w_n$ from $p(w_n|z_n,\beta)$, a multinomial probability conditioned on the topic $z_n$, more precisely, it is categorical distribution.</li>
                               </ol>
                             </li>
@@ -153,15 +153,36 @@
                         <script type="math/text; mode=display">
                             f(x;\alpha,\beta) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} x^{\alpha-1}(1-x)^{\beta - 1} =\frac{1}{B(\alpha,\beta) x^{\alpha-1}(1-x)^{\beta - 1}
                         </script>
-                        The beta function is a normalization constant. Following shows it PDF plot.
+                        The beta function is a normalization constant. Following shows its PDF plot:
                         </p>
 
                         <p><a href="http://en.wikipedia.org/wiki/Beta_distribution#/media/File:Beta_distribution_pdf.svg"><img src="http://upload.wikimedia.org/wikipedia/commons/f/f3/Beta_distribution_pdf.svg" width="450"></a></p>
 
                         <h5 id="dirichlet-distribution">Dirichlet Distribution</h5>
-                        
+                        <p>Dirichlet distribution is a multivariate generalized Beta distribution and it is often used as prior distribution in Bayesian statistics, and in fact it is the conjugate prior of the categorical distribution and multinomial distribution. That is, its probability density function returns the belief the probabilities of K rival events are $x_i$ given that each event has been observed $\alpha_i - 1$ times. The infinite-dimensional generalization of Dirichlet distribution is Dirichlet process. Folowing is its PDF: 
+                        <script type="math/text; mode=display">
+                            f(x_1,\ldots,x_{K-1};\alpha_1,\ldots,\alpha_K) = \frac{1}{B(\alpha)} \Pi_1^K{x_i^{\alpha_i}}
+                        </script>
+                        Where $\alpha = \sum_1^K{\alpha_i}$
+                        </p>
 
-                        
+                        <h5>How to generate Dirichlet distribution</h5>
+                        <p>For independently distributed Gamma distributions:
+                        <script type="math/text; mode=display">
+                            Y_1 \sim Gamma(\alpha_1, \theta), \ldots, Y_K = Gamma(\alpha_K, \theta)
+                        </script>
+                        We have: 
+                        <script type="math/text; mode=display">
+                            \begin{eqnarray*}
+                                V & = & \sum_1^K Y_i \sim Gamma()
+                                X & = & (X_1,\ldots, X_K) = (\frac{Y_1}{V},\ldots,\frac{Y_K}{V}) \sim Dir(\alpha_1, \ldots, \alpha_K)
+                            \end{eqnarray*}
+                        </script>
+                        which means we can easily get Dirchlet distribution from Gamma distribution. Following shows its PDF plot:
+                        </p>
+
+                        <p><a href="http://en.wikipedia.org/wiki/Dirichlet_distribution#/media/File:Dirichlet_distributions.png"></a><img src="http://upload.wikimedia.org/wikipedia/commons/3/3e/Dirichlet_distributions.png"></p>
+
                     </div>
                     <footer>
                         <p class="meta">
