@@ -150,7 +150,7 @@
 
                         <h5 id="beta-distribution">Beta distribution</h5>
                         <p>In the bayesian inference, the beta distribution is the conjugate prior probability distribution for Bernouli (one trial for two class, categorical distribution is a generalized Bernouli distribution for multiple class), binomial (sum of multiple indepedent Bernouli trial and multinomial distribution is a generalized binomial distribution) and geometric distribution. The beta distribution is a suitable model for the random behavior percentage and proportions. The PDF of beta distribution is as follows:
-                        <script type="math/text; mode=display">
+                        <script type="math/tex; mode=display">
                             f(x;\alpha,\beta) = \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} x^{\alpha-1}(1-x)^{\beta - 1} =\frac{1}{B(\alpha,\beta) x^{\alpha-1}(1-x)^{\beta - 1}
                         </script>
                         The beta function is a normalization constant. Following shows its PDF plot:
@@ -160,7 +160,7 @@
 
                         <h5 id="dirichlet-distribution">Dirichlet Distribution</h5>
                         <p>Dirichlet distribution is a multivariate generalized Beta distribution and it is often used as prior distribution in Bayesian statistics, and in fact it is the conjugate prior of the categorical distribution and multinomial distribution. That is, its probability density function returns the belief the probabilities of K rival events are $x_i$ given that each event has been observed $\alpha_i - 1$ times. The infinite-dimensional generalization of Dirichlet distribution is Dirichlet process. Folowing is its PDF: 
-                        <script type="math/text; mode=display">
+                        <script type="math/tex; mode=display">
                             f(x_1,\ldots,x_{K-1};\alpha_1,\ldots,\alpha_K) = \frac{1}{B(\alpha)} \Pi_1^K{x_i^{\alpha_i}}
                         </script>
                         Where $\alpha = \sum_1^K{\alpha_i}$
@@ -168,11 +168,11 @@
 
                         <h5>How to generate Dirichlet distribution</h5>
                         <p>For independently distributed Gamma distributions:
-                        <script type="math/text; mode=display">
+                        <script type="math/tex; mode=display">
                             Y_1 \sim Gamma(\alpha_1, \theta), \ldots, Y_K = Gamma(\alpha_K, \theta)
                         </script>
                         We have: 
-                        <script type="math/text; mode=display">
+                        <script type="math/tex; mode=display">
                             \begin{eqnarray}
                                 V & = & \sum_1^K Y_i \sim Gamma() \\
                                 X & = & (X_1,\ldots, X_K) = (\frac{Y_1}{V},\ldots,\frac{Y_K}{V}) \sim Dir(\alpha_1, \ldots, \alpha_K)
